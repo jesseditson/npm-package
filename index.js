@@ -10,6 +10,7 @@ function npmPackage(name, opts, callback) {
     opts = {}
   }
   realizePackageSpecifier(name, function(err, result) {
+    if (err) return callback(err)
     if (result.type === 'hosted') {
       return hostedPackage(result.hosted, opts, callback)
     } else {
