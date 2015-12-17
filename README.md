@@ -34,6 +34,9 @@ $ npm-package package-name
 # private
 $ npm-package --token githubtoken package-name
 # both above commands output pretty printed json to stdout
+
+# disable pretty-printing (print json all on one line)
+$ npm-package --raw package-name
 ```
 
 **generating a github token**

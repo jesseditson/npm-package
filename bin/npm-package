@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 
 var args = require('minimist')(process.argv.slice(2), {
-  alias: { 't': 'token' }
+  alias: { 't': 'token', 'r': 'raw', 's': 'stack' },
+  boolean: [ 'raw', 'stack' ],
+  string: [ 'token' ]
 })
 var npmPackage = require('..')
 
 npmPackage(args._[0], args, function(err, pkg) {
-  if (err) return console.error('ERROR: ' + err.message)
-  console.log(JSON.stringify(pkg, null, 4))
+  if (err) {
+    if (args.stack) throw err
+    console.error('ERROR: ' + err.message)
+    process.exit(1)
+  }
+  var strArgs = [ pkg, null, 4 ]
+  if (args.raw) strArgs.pop()
+  console.log(JSON.stringify.apply(JSON, strArgs))
 })
