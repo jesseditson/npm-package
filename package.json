@@ -1,5 +1,5 @@
 {
-  "name": "npm-package",
+  "name": "npm-package-info",
   "version": "0.0.1",
   "description": "fetches the package information for an npm package",
   "main": "index.js",

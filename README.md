@@ -4,16 +4,16 @@ fetches the package information for an npm package
 
 # Usage
 
-`npm install --save npm-package`
+`npm install --save npm-package-info`
 
 or
 
-`npm install -g npm-package`
+`npm install -g npm-package-info`
 
 **node module**
 
 ```javascript
-var npmPackage = require('npm-package')
+var npmPackage = require('npm-package-info')
 
 // get a public package
 npmPackage('package-name', function(err, pkg) {
