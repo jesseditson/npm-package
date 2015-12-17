@@ -1,0 +1,32 @@
+{
+  "name": "npm-package",
+  "version": "0.0.1",
+  "description": "fetches the package information for an npm package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesseditson/npm-package.git"
+  },
+  "bin": {
+    "npm-package": "./bin/npm-package"
+  },
+  "keywords": [
+    "npm",
+    "package"
+  ],
+  "author": "Jesse Ditson <jesse.ditson@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesseditson/npm-package/issues"
+  },
+  "homepage": "https://github.com/jesseditson/npm-package#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "realize-package-specifier": "^3.0.1",
+    "registry-url": "^3.0.3",
+    "superagent": "^1.6.1"
+  }
+}

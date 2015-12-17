@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var args = require('minimist')(process.argv.slice(2), {
+  alias: { 't': 'token' }
+})
+var npmPackage = require('..')
+
+npmPackage(args._[0], args, function(err, pkg) {
+  if (err) return console.error('ERROR: ' + err.message)
+  console.log(JSON.stringify(pkg, null, 4))
+})
