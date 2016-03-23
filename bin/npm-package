@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 
 var args = require('minimist')(process.argv.slice(2), {
-  alias: { 't': 'token', 'r': 'raw', 's': 'stack' },
-  boolean: [ 'raw', 'stack' ],
+  alias: { 't': 'token', 'r': 'raw', 's': 'stack', 'include-readme': 'includeReadme' },
+  boolean: [ 'raw', 'stack', '--include-readme' ],
   string: [ 'token' ]
 })
 var npmPackage = require('..')
 
+if (!args._[0]) {
+  process.stderr.write("usage:\n npm-package [package-name] [options]\n")
+  process.exit(1)
+}
+
 npmPackage(args._[0], args, function(err, pkg) {
   if (err) {
     if (args.stack) throw err
-    console.error('ERROR: ' + err.message)
+    process.stderr.write('ERROR: ' + err.message + "\n")
     process.exit(1)
   }
   var strArgs = [ pkg, null, 4 ]
   if (args.raw) strArgs.pop()
-  console.log(JSON.stringify.apply(JSON, strArgs))
+  process.stdout.write(JSON.stringify.apply(JSON, strArgs))
 })
