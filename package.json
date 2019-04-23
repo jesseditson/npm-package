@@ -27,7 +27,7 @@
     "minimist": "^1.2.0",
     "realize-package-specifier": "^3.0.1",
     "registry-url": "^3.0.3",
-    "superagent": "^1.6.1"
+    "superagent": "^3.7.0"
   },
   "devDependencies": {
     "tape": "^4.5.1"
